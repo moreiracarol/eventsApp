@@ -1,0 +1,69 @@
+$color1: #fff;
+$color2: #f4f4f4;
+$color3: #a6a6a6;
+$color4: #ff8c30;
+$color5: #747474;
+$color6: #0e1574;
+
+h1 {
+  font-size: 48px;
+  font-weight: 900;
+  color: $color6;
+}
+
+.home {
+  &__menu {
+    display: flex;
+
+    &__item {
+      padding: 8px 16px;
+      font-size: 24px;
+      border: solid 2px;
+      border-radius: 25px;
+      margin-right: 16px;
+      color: $color1;
+      background-color: $color4;
+
+      &:hover {
+        color: $color4;
+        border-color: $color4;
+        background-color: $color1;
+      }
+    }
+  }
+}
+
+.pagination {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color6;
+  padding: 0;
+  font-weight: 600;
+  margin: 48px 24px;
+
+  &__item {
+    border-radius: 6px;
+    padding: 8px 16px;
+  }
+
+  .active,
+  &__item:hover {
+    background-color: $color6;
+    color: $color2;
+  }
+
+  .disabled,
+  .disabled:hover {
+    color: $color3;
+    background: $color1;
+    cursor: not-allowed;
+  }
+}
+
+.active,
+.pagination__item:hover {
+  background-color: $color6;
+  color: $color2;
+}

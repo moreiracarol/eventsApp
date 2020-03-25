@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cards should render the component 1`] = `
+<div class="events">
+  <h1 data-events-title="">EVENTS</h1>
+  <eventslist-stub data-events-list=""></eventslist-stub>
+</div>
+`;
