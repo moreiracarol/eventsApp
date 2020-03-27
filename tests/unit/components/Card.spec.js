@@ -1,23 +1,32 @@
 import Card from "../../../src/components/Card";
 import { createLocalVue, shallowMount } from "@vue/test-utils";
 
+const localVue = createLocalVue();
+
 describe("Cards", () => {
-  const localVue = createLocalVue();
   let wrapper;
+  let event = { id: "1", favorite: false };
 
   beforeEach(() => {
     wrapper = shallowMount(Card, {
       localVue,
       propsData: {
-        event: { date: "2020-03-20", name: "party", price: "EUR 100" }
+        event
+      },
+      computed: {
+        getIcon: () => { return "foo" },
+        getRedirectIcon: () => { return "bar" }
       }
     });
   });
 
   test("should render the component", () => {
-    expect(wrapper.find(".card")).toBeTruthy();
-    expect(wrapper.find(".card__date")).toBeTruthy();
-    expect(wrapper.find(".card__name")).toBeTruthy();
-    expect(wrapper.find(".card__price")).toBeTruthy();
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  test("should redirect user to event page", () => {
+    window.open = jest.fn();
+    wrapper.find(".card__icons__redirect").trigger("click");
+    expect(window.open).toHaveBeenCalled();
   });
 });

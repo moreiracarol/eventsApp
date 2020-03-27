@@ -18,8 +18,14 @@ describe("Getters", () => {
     const state = { events };
     expect(getters.allEvents(state)).toBe(events);
   });
-  test("suggestEvents", () => {
-    const state = { suggest: events };
-    expect(getters.suggestEvents(state)).toBe(events);
+
+  test("favorites", () => {
+    const state = { favorites: events };
+    expect(getters.favorites(state)).toBe(events);
+  });
+
+  test("totalPages", () => {
+    const state = { totalPages: 10 };
+    expect(getters.totalPages(state)).toBe(10);
   });
 });

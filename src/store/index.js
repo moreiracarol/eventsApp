@@ -7,9 +7,11 @@ import mutations from "./mutations";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  namespaced: true,
   state: {
     events: [],
-    suggest: []
+    favorites: [],
+    totalPages: 0
   },
   actions,
   getters,

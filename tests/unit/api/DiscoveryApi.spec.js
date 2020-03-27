@@ -11,26 +11,14 @@ describe("DiscoveryApi", () => {
   });
 
   test("fetchEvents", async () => {
-    const events = [{ foo: "bar" }];
+    const data = { _embedded: { events: [{ foo: "bar" }] } };
     mockAdapter
       .onGet(
         `${DISCOVER_URL}/events.json?countryCode=DE&apikey=${API_KEY}&page=0&sort=date,asc`
       )
-      .reply(200, { _embedded: { events } });
+      .reply(200, data );
 
-    const response = await DiscoveryApi.fetchEvents(0, "date,asc");
-    expect(response).toStrictEqual(events);
-  });
-
-  test("fetchSuggest", async () => {
-    const events = [{ foo: "bar" }];
-    mockAdapter
-      .onGet(
-        `${DISCOVER_URL}/suggest.json?countryCode=DE&apikey=${API_KEY}&page=0&sort=date,asc`
-      )
-      .reply(200, { _embedded: { events } });
-
-    const response = await DiscoveryApi.fetchSuggest(0, "date,asc");
-    expect(response).toStrictEqual(events);
+    const response = await DiscoveryApi.fetchEvents(0, "date,asc", "DE");
+    expect(response).toStrictEqual(data);
   });
 });

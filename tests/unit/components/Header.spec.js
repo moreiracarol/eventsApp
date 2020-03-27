@@ -1,9 +1,9 @@
-import Home from "../../../src/views/Home";
+import Header from "../../../src/components/Header";
 import { createLocalVue, shallowMount } from "@vue/test-utils";
 import Router from "vue-router";
-import { EVENTS_PATH, SUGGEST_PATH } from "../../../src/utils/constants";
+import { EVENTS_PATH, FAVORITES_PATH } from "../../../src/utils/constants";
 
-describe("Home", () => {
+describe("Header", () => {
   const localVue = createLocalVue();
   localVue.use(Router);
   let wrapper, mockRoute, spyRoutePush;
@@ -15,13 +15,13 @@ describe("Home", () => {
           path: EVENTS_PATH
         },
         {
-          path: SUGGEST_PATH
+          path: FAVORITES_PATH
         }
       ]
     });
     spyRoutePush = jest.spyOn(mockRoute, "push");
     mockRoute.push(EVENTS_PATH);
-    wrapper = shallowMount(Home, {
+    wrapper = shallowMount(Header, {
       localVue,
       router: mockRoute,
       computed: {
@@ -37,11 +37,11 @@ describe("Home", () => {
   });
 
   test("should render events page", () => {
-    expect(wrapper.find("[data-suggest-button]")).toBeTruthy();
+    expect(wrapper.find("[data-favorites-button]")).toBeTruthy();
   });
 
-  test("should render suggest page", () => {
-    mockRoute.push(SUGGEST_PATH);
+  test("should render favorites page", () => {
+    mockRoute.push(FAVORITES_PATH);
     expect(wrapper.find("[data-suggest-events]")).toBeTruthy();
   });
 
@@ -50,8 +50,8 @@ describe("Home", () => {
     expect(spyRoutePush).toHaveBeenCalledWith(EVENTS_PATH);
   });
 
-  test("should go to suggest page", () => {
-    wrapper.vm.goToSuggest();
-    expect(spyRoutePush).toHaveBeenCalledWith(SUGGEST_PATH);
+  test("should go to favorites page", () => {
+    wrapper.vm.goToFavorites();
+    expect(spyRoutePush).toHaveBeenCalledWith(FAVORITES_PATH);
   });
 });

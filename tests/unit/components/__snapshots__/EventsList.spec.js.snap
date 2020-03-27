@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventsList should NOT load SortBy components 1`] = `
+<div class="events-list">
+  <div>
+    <!---->
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`EventsList should NOT load SortBy components 2`] = `
+<div class="events-list">
+  <div>
+    <!---->
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`EventsList should load empty list 1`] = `
+<div class="events-list">
+  <div>No events to show</div>
+</div>
+`;
+
+exports[`EventsList should render the component 1`] = `
+<div class="events-list">
+  <div>
+    <sortby-stub></sortby-stub>
+    <!---->
+  </div>
+</div>
+`;

@@ -1,18 +1,18 @@
 <template>
-  <div class="suggest">
-    <h1>SUGGEST</h1>
-    <EventsList :isSuggest="true" />
+  <div class="favorites">
+    <h1>FAVORITES</h1>
+    <EventsList/>
   </div>
 </template>
 
 <script>
 import EventsList from "../components/EventsList";
 export default {
-  name: "Suggest",
+  name: "Favorites",
   components: { EventsList }
 };
 </script>
 
 <style scoped lang="scss">
-@import "../styles/lt-challenge";
+@import "../styles/events-app";
 </style>

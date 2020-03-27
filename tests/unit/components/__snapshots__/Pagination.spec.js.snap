@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination should render the component 1`] = `<paginate-stub pagecount="10" clickhandler="function () { [native code] }" pagerange="3" marginpages="1" prevtext="Previous" nexttext="Next" breakviewtext="…" containerclass="pagination" pageclass="pagination__item" prevclass="pagination__item" nextclass="pagination__item" activeclass="active" disabledclass="disabled" firstbuttontext="First" lastbuttontext="Last" data-pagination=""></paginate-stub>`;

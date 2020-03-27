@@ -1,43 +1,69 @@
 import EventsList from "../../../src/components/EventsList";
 import { createLocalVue, shallowMount } from "@vue/test-utils";
-import Vuex from "vuex";
 
 const localVue = createLocalVue();
-localVue.use(Vuex);
 
 describe("EventsList", () => {
-  let wrapper, store, actions;
-
-  afterEach(() => {
-    jest.restoreAllMocks();
-  });
+  let wrapper;
 
   beforeEach(() => {
-    actions = {
-      getEvents: jest.fn(),
-      getSuggestions: jest.fn()
-    };
-    store = new Vuex.Store({
-      actions
-    });
-
     wrapper = shallowMount(EventsList, {
-      store,
       localVue,
       propsData: {
-        isSuggested: false
+        showAllEvents: true
+      },
+      computed: {
+        isEmptyScreen: () => false
       }
     });
   });
 
   test("should render the component", () => {
-    expect(wrapper.find(".events-list")).toBeTruthy();
-    expect(wrapper.find(".events-list__sort")).toBeTruthy();
-    expect(wrapper.find(".events-list__sort__title")).toBeTruthy();
-    expect(wrapper.find("[data-sort-select]")).toBeTruthy();
-    expect(wrapper.find("[data-sort-options]")).toBeTruthy();
-    expect(wrapper.find("[data-card-container]")).toBeTruthy();
-    expect(wrapper.find("[data-card]")).toBeTruthy();
-    expect(wrapper.find("[data-pagination]")).toBeTruthy();
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  test("should load empty list", () => {
+    wrapper = shallowMount(EventsList, {
+      localVue,
+      propsData: {
+        showAllEvents: true
+      },
+      computed: {
+        isEmptyScreen: () => true
+      }
+    });
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  test("should NOT load SortBy components", () => {
+    wrapper = shallowMount(EventsList, {
+      localVue,
+      propsData: {
+        showAllEvents: false
+      },
+      computed: {
+        isEmptyScreen: () => false
+      }
+    });
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  test("should NOT load SortBy components", () => {
+    wrapper = shallowMount(EventsList, {
+      localVue,
+      data() {
+        return { totalPages: 2 };
+      },
+      propsData: {
+        showAllEvents: false
+      },
+      computed: {
+        isEmptyScreen: () => false
+      }
+    });
+
+    expect(wrapper).toMatchSnapshot();
   });
 });

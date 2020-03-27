@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Cards should render the component 1`] = `
-<div class="suggest">
-  <h1>SUGGEST</h1>
-  <eventslist-stub issuggest="true"></eventslist-stub>
-</div>
-`;

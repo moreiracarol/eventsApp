@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render the component 1`] = `
+<div class="header">
+  <div class="header__menu">
+    <div data-favorites-button="" class="header__menu__item">
+      My favorites
+    </div>
+  </div>
+</div>
+`;

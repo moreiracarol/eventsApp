@@ -7,6 +7,10 @@ export const getEventsList = eventsList => {
     event.name = item.name;
     event.date = getDate(item);
     event.price = getPrice(item);
+    event.id = item.id;
+    event.favorite = false;
+    event.image = item.images[0].url;
+    event.url = item.url;
     events.push(event);
     event = {};
   });
@@ -69,11 +73,17 @@ export const isEventsPage = path => {
   return path === EVENTS_PATH;
 };
 
+export const getImageContext = icon => {
+  const images = require.context("../../public/images", false, /\.png$/);
+  return images("./" + icon + ".png");
+};
+
 export default {
   getEventsList,
   getDate,
   getPrice,
   getWeekDayName,
   getMonthName,
-  isEventsPage
+  isEventsPage,
+  getImageContext
 };

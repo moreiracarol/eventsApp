@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Favorites should render the component 1`] = `
+<div class="favorites">
+  <h1>FAVORITES</h1>
+  <eventslist-stub></eventslist-stub>
+</div>
+`;

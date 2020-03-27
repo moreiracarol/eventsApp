@@ -1,7 +1,7 @@
 import Events from "./views/Events";
-import Suggest from "./views/Suggest";
+import Favorites from "./views/Favorites";
 import VueRouter from "vue-router";
-import { EVENTS_PATH, SUGGEST_PATH } from "./utils/constants";
+import { EVENTS_PATH, FAVORITES_PATH } from "./utils/constants";
 
 const routes = [
   {
@@ -10,12 +10,12 @@ const routes = [
     component: Events
   },
   {
-    path: SUGGEST_PATH,
-    name: "suggest",
-    component: Suggest
+    path: FAVORITES_PATH,
+    name: "favorites",
+    component: Favorites
   },
   {
-    path: "/",
+    path: "*",
     redirect: EVENTS_PATH
   }
 ];

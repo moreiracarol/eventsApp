@@ -2,7 +2,10 @@ export default {
   allEvents: state => {
     return state.events;
   },
-  suggestEvents: state => {
-    return state.suggest;
+  favorites: state => {
+    return state.favorites;
+  },
+  totalPages: state => {
+    return state.totalPages;
   }
 };

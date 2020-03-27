@@ -1,13 +1,12 @@
 <template>
   <div class="events">
     <h1 data-events-title>EVENTS</h1>
-    <EventsList :isSuggest="false" data-events-list />
+    <EventsList :showAllEvents="true" data-events-list />
   </div>
 </template>
 
 <script>
 import EventsList from "../components/EventsList";
-
 export default {
   name: "Events",
   components: { EventsList }
@@ -15,5 +14,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../styles/lt-challenge";
+@import "../styles/events-app";
 </style>
