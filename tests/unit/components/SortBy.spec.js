@@ -1,7 +1,7 @@
 import SortBy from "../../../src/components/SortBy";
 import { createLocalVue, shallowMount } from "@vue/test-utils";
 
-describe("SortBy", () => {
+describe("<SortBy/>", () => {
   const localVue = createLocalVue();
   let wrapper;
 

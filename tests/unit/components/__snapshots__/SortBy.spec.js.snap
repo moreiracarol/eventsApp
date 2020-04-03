@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SortBy should render the component 1`] = `
+exports[`<SortBy/> should render the component 1`] = `
 <div class="sort-by"><span class="sort-by__title">Sort by</span> <select id="orderBy" data-sort-select="">
     <option data-sort-options="" value="date,asc">Upcoming events</option>
     <option data-sort-options="" value="name,asc">Name</option>

@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Cards should render the component 1`] = `
+exports[`<Card/> should render the component 1`] = `
 <div class="card">
   <div class="card__content">
     <div class="card__image"><img></div>
     <div class="card__info">
-      <div class="card__date"></div>
+      <date-stub></date-stub>
       <div class="card__name"></div>
       <div class="card__price"></div>
     </div>

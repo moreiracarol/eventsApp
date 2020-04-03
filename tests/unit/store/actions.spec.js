@@ -12,9 +12,7 @@ const event = {
     }
   },
   price: "Free",
-  images: [
-    { url: "foo"}
-  ],
+  images: [{ url: "foo" }],
   favorite: false,
   url: "url"
 };
@@ -22,7 +20,11 @@ const event = {
 const formattedEvent = {
   id: "1",
   name: "Party",
-  date: "Friday, 20 March 2020",
+  date: {
+    start: {
+      localDate: "2020-03-20"
+    }
+  },
   price: "Free",
   image: "foo",
   favorite: false,
@@ -42,10 +44,7 @@ describe("Actions", () => {
   };
 
   beforeEach(() => {
-    jest.spyOn(StringUtils, "getDate").mockImplementation();
     jest.spyOn(StringUtils, "getPrice").mockImplementation();
-    jest.spyOn(StringUtils, "getWeekDayName").mockImplementation();
-    jest.spyOn(StringUtils, "getMonthName").mockImplementation();
   });
 
   test("getEvents", async () => {
@@ -53,14 +52,17 @@ describe("Actions", () => {
       .spyOn(DiscoveryApi, "fetchEvents")
       .mockReturnValue({ _embedded: { events }, page });
     const spyFetchCountryCode = jest
-        .spyOn(IpApi, "fetchCountryCode")
-        .mockReturnValue("DE");
+      .spyOn(IpApi, "fetchCountryCode")
+      .mockReturnValue("DE");
 
     await actions.getEvents(context, { page: 0 });
     expect(spyFetchCountryCode).toHaveBeenCalled();
     expect(spyFetchEvents).toHaveBeenCalledWith(0, "date,asc", "DE");
     expect(context.commit).toHaveBeenCalledWith("saveEvents", [formattedEvent]);
-    expect(context.commit).toHaveBeenCalledWith("saveTotalPages", page.totalPages);
+    expect(context.commit).toHaveBeenCalledWith(
+      "saveTotalPages",
+      page.totalPages
+    );
   });
 
   test("addToFavorites", async () => {

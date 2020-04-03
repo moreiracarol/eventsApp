@@ -1,22 +1,22 @@
 <template>
   <div class="header">
     <div class="header__menu">
-      <div
+      <button
         v-if="isEventsRoute"
         class="header__menu__item"
         @click="goToFavorites"
         data-favorites-button
       >
         My favorites
-      </div>
-      <div
+      </button>
+      <button
         v-else
         class="header__menu__item"
         @click="goToEvents"
         data-events-button
       >
         See all events
-      </div>
+      </button>
     </div>
   </div>
 </template>
@@ -56,6 +56,10 @@ export default {
       border-radius: 25px;
       color: $color1;
       background-color: $color4;
+
+      &:focus {
+        outline:0;
+      }
 
       &:hover {
         color: $color4;

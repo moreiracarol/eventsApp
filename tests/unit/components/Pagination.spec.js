@@ -1,7 +1,7 @@
 import Pagination from "../../../src/components/Pagination";
 import { createLocalVue, shallowMount } from "@vue/test-utils";
 
-describe("Pagination", () => {
+describe("<Pagination/>", () => {
   const localVue = createLocalVue();
   let wrapper;
 

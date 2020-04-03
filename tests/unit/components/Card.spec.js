@@ -3,7 +3,7 @@ import { createLocalVue, shallowMount } from "@vue/test-utils";
 
 const localVue = createLocalVue();
 
-describe("Cards", () => {
+describe("<Card/>", () => {
   let wrapper;
   let event = { id: "1", favorite: false };
 

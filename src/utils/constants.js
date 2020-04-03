@@ -11,3 +11,28 @@ export const SORT_OPTIONS = [
   { text: "Relevance", value: "relevance,asc" },
   { text: "Distance", value: "distance,asc" }
 ];
+
+export const monthName = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December"
+];
+
+export const weekDayName = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday"
+];

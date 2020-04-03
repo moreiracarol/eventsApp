@@ -3,7 +3,7 @@ import { createLocalVue, shallowMount } from "@vue/test-utils";
 
 const localVue = createLocalVue();
 
-describe("EventsList", () => {
+describe("<EventsList/>", () => {
   let wrapper;
 
   beforeEach(() => {

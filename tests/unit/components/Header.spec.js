@@ -3,7 +3,7 @@ import { createLocalVue, shallowMount } from "@vue/test-utils";
 import Router from "vue-router";
 import { EVENTS_PATH, FAVORITES_PATH } from "../../../src/utils/constants";
 
-describe("Header", () => {
+describe("<Header/>", () => {
   const localVue = createLocalVue();
   localVue.use(Router);
   let wrapper, mockRoute, spyRoutePush;

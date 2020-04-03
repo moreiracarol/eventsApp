@@ -5,7 +5,7 @@
         <img :src="event.image" />
       </div>
       <div class="card__info">
-        <div class="card__date" v-text="event.date"></div>
+        <Date :date="event.date"/>
         <div class="card__name" v-text="event.name"></div>
         <div class="card__price" v-text="event.price"></div>
       </div>
@@ -28,8 +28,10 @@
 <script>
 import store from "../store";
 import { getImageContext } from "../utils/stringUtils";
+import Date from "./Date";
 export default {
   name: "Card",
+  components: {Date},
   props: {
     event: {
       type: Object,
@@ -119,18 +121,6 @@ export default {
 
     @media (min-width: $breakpoint-tablet) {
       font-size: 24px;
-      padding: 8px;
-    }
-  }
-
-  &__date {
-    color: $color4;
-    font-weight: 600;
-    padding: 4px;
-    font-size: 12px;
-
-    @media (min-width: $breakpoint-tablet) {
-      font-size: 16px;
       padding: 8px;
     }
   }
