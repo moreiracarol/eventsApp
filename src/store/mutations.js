@@ -11,7 +11,25 @@ export default {
   },
   updateFavoritesList(state, event) {
     event.favorite
-        ? state && state.favorites && state.favorites.push(event)
-        : state.favorites = state && state.favorites && state.favorites.filter(item => item.id !== event.id);
+      ? state && state.favorites && state.favorites.push(event)
+      : (state.favorites =
+          state &&
+          state.favorites &&
+          state.favorites.filter(item => item.id !== event.id));
+  },
+  saveUser(state, auth) {
+    state.auth = auth;
+    state.authenticated = true;
+  },
+  setSignOut(state) {
+    state.auth = {};
+    state.authenticated = false;
+  },
+  clearAll(state) {
+    state.events = [];
+    state.favorites = [];
+    state.totalPages = 0;
+    state.auth = {};
+    state.authenticated = false;
   }
 };

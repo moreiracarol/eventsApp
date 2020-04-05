@@ -4,6 +4,7 @@ export const API_KEY = "4diZ7tJQArO9sxHiVWMASl5udVTAoI78";
 
 export const EVENTS_PATH = "/events";
 export const FAVORITES_PATH = "/favorites";
+export const LOGIN_PATH = "/login";
 
 export const SORT_OPTIONS = [
   { text: "Upcoming events", value: "date,asc" },

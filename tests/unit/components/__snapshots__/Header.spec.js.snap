@@ -2,8 +2,8 @@
 
 exports[`<Header/> should render the component 1`] = `
 <div class="header">
-  <div class="header__menu"><button data-favorites-button="" class="header__menu__item">
-      My favorites
-    </button></div>
+  <div class="sign-out">
+    <amplify-sign-out-stub></amplify-sign-out-stub>
+  </div>
 </div>
 `;

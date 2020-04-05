@@ -43,7 +43,7 @@ export default {
   justify-content: flex-end;
   align-items: center;
   font-size: 12px;
-  padding: 16px 8px;
+  padding: 0 8px 16px;
   color: $color6;
 
   &__title {

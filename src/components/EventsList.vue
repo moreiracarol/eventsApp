@@ -22,9 +22,9 @@
 import store from "../store";
 import Card from "./Card";
 import { SORT_OPTIONS } from "../utils/constants";
-import { mapActions } from "vuex";
 import Pagination from "./Pagination";
 import SortBy from "./SortBy";
+
 export default {
   name: "EventsList",
   components: {
@@ -59,7 +59,6 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["getEvents"]),
     async loadList(sort) {
       this.showAllEvents
         ? await store.dispatch("getEvents", { page: this.page, sort })

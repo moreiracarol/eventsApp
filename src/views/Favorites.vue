@@ -1,15 +1,28 @@
 <template>
   <div class="favorites">
     <h1>FAVORITES</h1>
-    <EventsList/>
+    <button
+      class="primary-button"
+      @click="goToEvents"
+      data-events-button
+    >
+      See all events
+    </button>
+    <EventsList />
   </div>
 </template>
 
 <script>
 import EventsList from "../components/EventsList";
+import { EVENTS_PATH } from "../utils/constants";
 export default {
   name: "Favorites",
-  components: { EventsList }
+  components: { EventsList },
+  methods: {
+    goToEvents() {
+      this.$router.push(EVENTS_PATH);
+    }
+  }
 };
 </script>
 

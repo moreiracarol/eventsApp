@@ -1,8 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Favorites should render the component 1`] = `
+exports[`<Favorites/> should render the component 1`] = `
 <div class="favorites">
-  <h1>FAVORITES</h1>
+  <h1>FAVORITES</h1> <button data-events-button="" class="primary-button">
+    See all events
+  </button>
   <eventslist-stub></eventslist-stub>
 </div>
 `;

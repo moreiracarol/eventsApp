@@ -6,7 +6,7 @@ import { EVENTS_PATH, FAVORITES_PATH } from "../../../src/utils/constants";
 describe("<Header/>", () => {
   const localVue = createLocalVue();
   localVue.use(Router);
-  let wrapper, mockRoute, spyRoutePush;
+  let wrapper, mockRoute;
 
   beforeEach(() => {
     mockRoute = new Router({
@@ -19,8 +19,6 @@ describe("<Header/>", () => {
         }
       ]
     });
-    spyRoutePush = jest.spyOn(mockRoute, "push");
-    mockRoute.push(EVENTS_PATH);
     wrapper = shallowMount(Header, {
       localVue,
       router: mockRoute,
@@ -43,15 +41,5 @@ describe("<Header/>", () => {
   test("should render favorites page", () => {
     mockRoute.push(FAVORITES_PATH);
     expect(wrapper.find("[data-suggest-events]")).toBeTruthy();
-  });
-
-  test("should go to events page", () => {
-    wrapper.vm.goToEvents();
-    expect(spyRoutePush).toHaveBeenCalledWith(EVENTS_PATH);
-  });
-
-  test("should go to favorites page", () => {
-    wrapper.vm.goToFavorites();
-    expect(spyRoutePush).toHaveBeenCalledWith(FAVORITES_PATH);
   });
 });
