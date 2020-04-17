@@ -48,16 +48,21 @@ describe("Actions", () => {
   });
 
   test("getEvents", async () => {
+    const location = {
+      countryCode: "DE",
+      lat: "1.000",
+      lon: "2.000"
+    };
     const spyFetchEvents = jest
       .spyOn(DiscoveryApi, "fetchEvents")
       .mockReturnValue({ _embedded: { events }, page });
-    const spyFetchCountryCode = jest
-      .spyOn(IpApi, "fetchCountryCode")
-      .mockReturnValue("DE");
+    const spyFetchLocation = jest
+      .spyOn(IpApi, "fetchLocation")
+      .mockReturnValue(location);
 
     await actions.getEvents(context, { page: 0 });
-    expect(spyFetchCountryCode).toHaveBeenCalled();
-    expect(spyFetchEvents).toHaveBeenCalledWith(0, "date,asc", "DE");
+    expect(spyFetchLocation).toHaveBeenCalled();
+    expect(spyFetchEvents).toHaveBeenCalledWith(0, "date,asc", "DE", "1.000,2.000");
     expect(context.commit).toHaveBeenCalledWith("saveEvents", [formattedEvent]);
     expect(context.commit).toHaveBeenCalledWith(
       "saveTotalPages",
