@@ -3,7 +3,7 @@ import { IP_URL } from "../utils/constants";
 
 export default {
   fetchCountryCode: async () => {
-    const response = await axios.get(IP_URL, { crossdomain: true });
+    const response = await axios.get(IP_URL);
     return response.data.countryCode;
   }
 };

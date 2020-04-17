@@ -1,4 +1,4 @@
-export const IP_URL = "http://ip-api.com/json";
+export const IP_URL = "https://extreme-ip-lookup.com/json/";
 export const DISCOVER_URL = "https://app.ticketmaster.com/discovery/v2";
 export const API_KEY = "4diZ7tJQArO9sxHiVWMASl5udVTAoI78";
 
