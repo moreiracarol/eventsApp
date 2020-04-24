@@ -5,7 +5,7 @@ const localVue = createLocalVue();
 
 describe("<Card/>", () => {
   let wrapper;
-  let event = { id: "1", favorite: false };
+  let event = { id: "1", favorite: false, date: { start: "2020-03-20" } };
 
   beforeEach(() => {
     wrapper = shallowMount(Card, {
@@ -14,8 +14,12 @@ describe("<Card/>", () => {
         event
       },
       computed: {
-        getIcon: () => { return "foo" },
-        getRedirectIcon: () => { return "bar" }
+        getIcon: () => {
+          return "foo";
+        },
+        getRedirectIcon: () => {
+          return "bar";
+        }
       }
     });
   });

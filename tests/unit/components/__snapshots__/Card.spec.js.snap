@@ -5,7 +5,7 @@ exports[`<Card/> should render the component 1`] = `
   <div class="card__content">
     <div class="card__image"><img></div>
     <div class="card__info">
-      <date-stub></date-stub>
+      <date-stub date="[object Object]"></date-stub>
       <div class="card__name"></div>
       <div class="card__price"></div>
     </div>
