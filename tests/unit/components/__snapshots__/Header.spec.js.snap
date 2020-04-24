@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`<Header/> should render the component 1`] = `
-<div class="header">
-  <div class="sign-out">
-    <amplify-sign-out-stub></amplify-sign-out-stub>
-  </div>
-</div>
-`;

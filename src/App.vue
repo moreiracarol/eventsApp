@@ -1,39 +1,13 @@
 <template>
   <div id="app">
-    <Header v-if="showHeader" />
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Header from "./components/Header.vue";
-import { AmplifyEventBus } from "aws-amplify-vue";
-import store from "./store";
-import {LOGIN_PATH} from "./utils/constants";
 
 export default {
   name: "App",
-  components: {
-    Header
-  },
-  data() {
-    return {
-      signedIn: false
-    };
-  },
-  computed: {
-    showHeader(){
-      return this.$route.path !== LOGIN_PATH;
-    }
-  },
-  async beforeCreate() {
-    AmplifyEventBus.$on("authState", info => {
-      if (info === "signedIn") {
-        this.signedIn = true;
-        store.dispatch("setUser");
-      }
-    });
-  }
 };
 </script>
 
