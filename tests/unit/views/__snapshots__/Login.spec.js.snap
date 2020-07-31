@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<login /> should render the component 1`] = `
+<div class="login">
+  <form-stub title="Login" buttonlabel="Login" footerlabel="Don't have an account? Create" footerlink="/register">
+    <div>
+      <b-form-input-stub value="user@app.com" placeholder="Email" debounce="0" type="email"></b-form-input-stub>
+      <b-form-input-stub value="123" placeholder="Password" debounce="0" type="password"></b-form-input-stub>
+      <!---->
+    </div>
+  </form-stub>
+</div>
+`;

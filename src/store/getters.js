@@ -10,5 +10,11 @@ export default {
   },
   isAuthenticated: state => {
     return state.isAuthenticated;
+  },
+  isRegistered: state => {
+    return state.isRegistered;
+  },
+  error: state => {
+    return state.authError;
   }
 };

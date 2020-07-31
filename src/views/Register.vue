@@ -19,6 +19,7 @@
           type="password"
           placeholder="Password"
         />
+        <Error v-if="error" />
       </div>
     </Form>
     <Form
@@ -36,6 +37,7 @@
           placeholder="Email"
         />
         <b-form-input v-model="confirmForm.code" placeholder="Code" />
+        <Error v-if="error" />
       </div>
     </Form>
   </div>
@@ -45,6 +47,7 @@
 import { mapActions, mapGetters } from "vuex";
 import { EVENTS_PATH } from "@/utils/constants";
 import Form from "@/layouts/Form";
+import Error from "@/components/Error";
 
 const steps = {
   register: "REGISTER",
@@ -53,7 +56,7 @@ const steps = {
 
 export default {
   name: "Register",
-  components: { Form },
+  components: { Error, Form },
   data: () => ({
     steps: { ...steps },
     step: steps.register,
@@ -67,30 +70,35 @@ export default {
     }
   }),
   created() {
-    if (this.isAuthenticated) {
-      this.$router.push(EVENTS_PATH);
-    }
+    this.clearError();
+    this.isAuthenticated && this.$router.push(EVENTS_PATH);
   },
   computed: {
     ...mapGetters({
-      isAuthenticated: "isAuthenticated"
+      isAuthenticated: "isAuthenticated",
+      error: "error"
     })
   },
   methods: {
     ...mapActions({
       authRegister: "register",
       authConfirmRegistration: "confirmRegistration",
-      authLogin: "login"
+      authLogin: "login",
+      clearError: "clearAuthError"
     }),
     register() {
       this.authRegister(this.registerForm);
-      this.confirmForm.email = this.registerForm.email;
-      this.step = this.steps.confirm;
+      if (this.isRegistered && !this.error) {
+        this.confirmForm.email = this.registerForm.email;
+        this.step = this.steps.confirm;
+      }
     },
     confirm() {
       this.authConfirmRegistration(this.confirmForm);
       this.authLogin(this.registerForm);
-      this.$router.push(EVENTS_PATH);
+      if (this.isAuthenticated && !this.error) {
+        this.$router.push(EVENTS_PATH);
+      }
     }
   }
 };

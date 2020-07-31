@@ -49,7 +49,7 @@ export default {
 <style scoped lang="scss">
 .form {
   max-width: 480px;
-  margin: 80px auto;
+  margin: 64px auto;
 
   &__fields {
     margin: 16px 0;

@@ -14,6 +14,7 @@
           type="password"
           placeholder="Password"
         />
+        <Error v-if="error" />
       </div>
     </Form>
   </div>
@@ -23,31 +24,35 @@
 import { mapActions, mapGetters } from "vuex";
 import { EVENTS_PATH } from "@/utils/constants";
 import Form from "@/layouts/Form";
+import Error from "@/components/Error";
 
 export default {
   name: "Login",
-  components: { Form },
+  components: { Error, Form },
   data: () => ({
     email: "",
     password: ""
   }),
   created() {
-    if (this.isAuthenticated) {
-      this.$router.push(EVENTS_PATH);
-    }
+    this.error && this.clearError();
+    this.isAuthenticated && this.$router.push(EVENTS_PATH);
   },
   computed: {
     ...mapGetters({
-      isAuthenticated: "isAuthenticated"
+      isAuthenticated: "isAuthenticated",
+      error: "error"
     })
   },
   methods: {
     ...mapActions({
-      authLogin: "login"
+      authLogin: "login",
+      clearError: "clearAuthError"
     }),
     async login() {
       await this.authLogin({ email: this.email, password: this.password });
-      this.$router.push(EVENTS_PATH);
+      if (this.isAuthenticated && !this.error) {
+        this.$router.push(EVENTS_PATH);
+      }
     }
   }
 };

@@ -28,4 +28,19 @@ describe("Getters", () => {
     const state = { totalPages: 10 };
     expect(getters.totalPages(state)).toBe(10);
   });
+
+  test("isAuthenticated", () => {
+    const state = { isAuthenticated: false };
+    expect(getters.isAuthenticated(state)).toBeFalsy();
+  });
+
+  test("isRegistered", () => {
+    const state = { isRegistered: false };
+    expect(getters.isRegistered(state)).toBeFalsy();
+  });
+
+  test("totalPages", () => {
+    const state = { authError: "Authentication error" };
+    expect(getters.error(state)).toBe("Authentication error");
+  });
 });

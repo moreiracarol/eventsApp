@@ -2,10 +2,10 @@ import DiscoveryApi from "@/api/DiscoveryApi";
 import { getEventsList } from "@/utils/stringUtils";
 import store from "@/store";
 import IpApi from "@/api/IpApi";
-import {Auth} from "aws-amplify";
+import { Auth } from "aws-amplify";
 
 export default {
-  getEvents: async (context, { page, sort = "date,asc" }) => {
+  getEvents: async ({ commit }, { page, sort = "date,asc" }) => {
     const location = await IpApi.fetchLocation();
     const latLong = `${location.lat},${location.lon}`;
     const data = await DiscoveryApi.fetchEvents(
@@ -16,18 +16,18 @@ export default {
     );
     const events = getEventsList(data._embedded.events);
     const totalPages = data.page.totalPages;
-    context.commit("saveEvents", events);
-    context.commit("saveTotalPages", totalPages);
+    commit("saveEvents", events);
+    commit("saveTotalPages", totalPages);
   },
-  addToFavorites: (context, event) => {
-    context.commit("saveFavorite", event.id);
-    context.commit("updateFavoritesList", event);
+  addToFavorites: ({ commit }, event) => {
+    commit("saveFavorite", event.id);
+    commit("updateFavoritesList", event);
   },
-  getFavorites: context => {
+  getFavorites: ({ commit })  => {
     const events = store.getters.favorites;
-    context.commit("saveEvents", events);
+    commit("saveEvents", events);
   },
-  async load({ commit }) {
+  load: async ({ commit }) => {
     try {
       const user = await Auth.currentAuthenticatedUser();
       commit("setUser", user);
@@ -36,7 +36,7 @@ export default {
       commit("setUser", null);
     }
   },
-  async register({ commit }, { email, password }) {
+  register: async ({ commit }, { email, password }) => {
     try {
       await Auth.signUp({
         username: email,
@@ -44,23 +44,30 @@ export default {
       });
       commit("setRegister", true);
     } catch (e) {
-      commit("setAuthError", e);
+      commit("setAuthError", e.message);
     }
   },
-  async confirmRegistration({ commit }, { email, code }) {
+  confirmRegistration: async ({ commit }, { email, code }) => {
     try {
       await Auth.confirmSignUp(email, code);
       commit("setConfirmed", true);
     } catch (e) {
-      commit("setAuthError", e);
+      commit("setAuthError", e.message);
     }
   },
-  async login({ commit }, { email, password }) {
-    const user = await Auth.signIn(email, password);
-    commit("setUser", user);
+  login: async ({ commit }, { email, password }) => {
+    try {
+      const user = await Auth.signIn(email, password);
+      commit("setUser", user);
+    } catch (e) {
+      commit("setAuthError", e.message);
+    }
   },
-  async logout({ commit }) {
+  logout: async ({ commit }) => {
     await Auth.signOut();
     commit("setUser", null);
+  },
+  clearAuthError: ({ commit }) => {
+    commit("setAuthError", null);
   }
 };
