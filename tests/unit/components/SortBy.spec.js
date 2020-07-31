@@ -1,4 +1,4 @@
-import SortBy from "../../../src/components/SortBy";
+import SortBy from "@/components/SortBy";
 import { createLocalVue, shallowMount } from "@vue/test-utils";
 import BootstrapVue from "bootstrap-vue";
 

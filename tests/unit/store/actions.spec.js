@@ -1,7 +1,7 @@
-import DiscoveryApi from "../../../src/api/DiscoveryApi";
-import actions from "../../../src/store/actions";
-import StringUtils from "../../../src/utils/stringUtils";
-import IpApi from "../../../src/api/IpApi";
+import DiscoveryApi from "@/api/DiscoveryApi";
+import actions from "@/store/actions";
+import StringUtils from "@/utils/stringUtils";
+import IpApi from "@/api/IpApi";
 
 const event = {
   id: "1",

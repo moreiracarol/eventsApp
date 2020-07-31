@@ -2,7 +2,7 @@ import {
   getEventsList,
   getPrice,
   isEventsPage
-} from "../../../src/utils/stringUtils";
+} from "@/utils/stringUtils";
 
 describe("StringUtils", () => {
   const date = new Date("2020-03-20");

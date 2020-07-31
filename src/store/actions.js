@@ -1,7 +1,7 @@
-import DiscoveryApi from "../api/DiscoveryApi";
-import { getEventsList } from "../utils/stringUtils";
-import store from "../store";
-import IpApi from "../api/IpApi";
+import DiscoveryApi from "@/api/DiscoveryApi";
+import { getEventsList } from "@/utils/stringUtils";
+import store from "@/store";
+import IpApi from "@/api/IpApi";
 
 export default {
   getEvents: async (context, { page, sort = "date,asc" }) => {

@@ -1,4 +1,4 @@
-import { EVENTS_PATH } from "./constants";
+import { EVENTS_PATH } from "@/utils/constants";
 
 export const getEventsList = eventsList => {
   let event = {};

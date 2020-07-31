@@ -1,4 +1,4 @@
-import Card from "../../../src/components/Card";
+import Card from "@/components/Card";
 import { createLocalVue, shallowMount } from "@vue/test-utils";
 import BootstrapVue from "bootstrap-vue";
 

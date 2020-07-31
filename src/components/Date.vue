@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { monthName, weekDayName } from "../utils/constants";
+import { monthName, weekDayName } from "@/utils/constants";
 
 export default {
   name: "Date",

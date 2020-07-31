@@ -1,7 +1,8 @@
-import Events from "../../../src/views/Events";
+import Events from "@/views/Events";
 import { createLocalVue, shallowMount } from "@vue/test-utils";
-import { EVENTS_PATH, FAVORITES_PATH } from "../../../src/utils/constants";
+import { EVENTS_PATH, FAVORITES_PATH } from "@/utils/constants";
 import Router from "vue-router";
+
 const localVue = createLocalVue();
 localVue.use(Router);
 
