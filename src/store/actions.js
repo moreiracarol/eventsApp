@@ -23,7 +23,7 @@ export default {
     context.commit("updateFavoritesList", event);
   },
   getFavorites: context => {
-    const events = store.state.favorites;
+    const events = store.getters.favorites;
     context.commit("saveEvents", events);
   }
 };

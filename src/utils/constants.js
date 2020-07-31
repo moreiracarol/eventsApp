@@ -7,10 +7,11 @@ export const FAVORITES_PATH = "/favorites";
 export const LOGIN_PATH = "/login";
 
 export const SORT_OPTIONS = [
-  { text: "Upcoming events", value: "date,asc" },
-  { text: "Name", value: "name,asc" },
-  { text: "Relevance", value: "relevance,asc" },
-  { text: "Distance", value: "distance,asc" }
+  { text: 'Sort by', value: null, disabled: true },
+  { text: 'Upcoming events', value: 'date,asc', disabled: false },
+  { text: 'Name', value: 'name,asc', disabled: false },
+  { text: 'Relevance', value: 'relevance,asc', disabled: false },
+  { text: 'Distance', value: 'distance,asc', disabled: false }
 ];
 
 export const monthName = [

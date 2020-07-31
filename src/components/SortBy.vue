@@ -1,66 +1,40 @@
 <template>
-  <div class="sort-by">
-    <span class="sort-by__title">Sort by</span>
-    <select
-      id="orderBy"
-      @change="sortEvents(sort)"
-      v-model="sort"
-      data-sort-select
-    >
-      <option
-        v-for="(option, index) in sortOptions"
-        :key="index"
-        :value="option.value"
-        v-text="option.text"
-        data-sort-options
-      />
-    </select>
+  <div class="sort-by ml-auto">
+    <b-form-select
+      v-model="selected"
+      :options="options"
+      @change="sortEvents(selected)"
+    />
   </div>
 </template>
 
 <script>
-import { SORT_OPTIONS } from "../utils/constants";
+import { SORT_OPTIONS } from "@/utils/constants";
 export default {
   name: "SortBy",
   data() {
     return {
-      sort: "",
-      sortOptions: SORT_OPTIONS
+      selected: null,
+      options: SORT_OPTIONS
     };
   },
   methods: {
-    sortEvents(sort) {
-      this.$emit("sortEvents", sort);
+    sortEvents(selected) {
+      this.$emit("sortEvents", selected);
     }
   }
 };
 </script>
 
 <style scoped lang="scss">
-@import "../styles/events-app";
+@import "@/styles/events-app";
+
 .sort-by {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  font-size: 12px;
-  padding: 0 8px 16px;
-  color: $color6;
+  padding-top: 8px;
+  color: $color-secondary;
 
-  &__title {
-    padding-right: 8px;
-  }
-
-  #orderBy {
-    height: 30px;
-    width: 120px;
-    background: $color2;
-    color: $color6;
-
-    &:hover {
-      border: solid 1px $color6;
-      background: $color1;
-      cursor: pointer;
-    }
+  @media (min-width: $breakpoint-tablet) {
+    width: 240px;
   }
 }
 </style>

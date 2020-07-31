@@ -1,7 +1,9 @@
 import Card from "../../../src/components/Card";
 import { createLocalVue, shallowMount } from "@vue/test-utils";
+import BootstrapVue from "bootstrap-vue";
 
 const localVue = createLocalVue();
+localVue.use(BootstrapVue)
 
 describe("<Card/>", () => {
   let wrapper;
@@ -30,7 +32,7 @@ describe("<Card/>", () => {
 
   test("should redirect user to event page", () => {
     window.open = jest.fn();
-    wrapper.find(".card__icons__redirect").trigger("click");
+    wrapper.find("[data-icon-redirect]").trigger("click");
     expect(window.open).toHaveBeenCalled();
   });
 });

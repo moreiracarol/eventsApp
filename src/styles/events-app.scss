@@ -1,42 +1,55 @@
-$color1: #fff;
-$color2: #f4f4f4;
-$color3: #a6a6a6;
-$color4: #ff8c30;
-$color5: #747474;
-$color6: #0e1574;
+$color-primary: #49c5b6;
+$color-primary-hover: #238e80;
+$color-secondary: #0e1574;
+$color-secondary-hover: #0c1151;
+$color-white: #fff;
+$color-light-green: #f4f7f6;
+$color-light-gray: #a6a6a6;
+$color-dark-gray: #747474;
 
 $card-image-height: 120px;
-
+$max-content-size: 948px;
 $breakpoint-tablet: 768px;
 
 h1 {
   font-size: 48px;
-  font-weight: 900;
-  color: $color6;
-  margin: 8px;
+  font-weight: 600;
+  color: $color-secondary;
+  margin: 16px 0;
 }
 
 input {
   padding: 12px;
   margin: 8px 0;
-  font-size: 16px;
 }
 
-.primary-button {
-  color: $color6;
-  border: transparent;
-  padding: 8px 16px;
-  font-size: 16px;
-  border-radius: 6px;
-  font-weight: 600;
-  display: flex;
+.btn-primary {
+  background: $color-primary;
+  border-color: $color-primary;
 
   &:hover {
-    cursor: pointer;
-    color: $color4;
+    background: $color-primary-hover;
   }
+}
 
-  &:focus {
-    outline: 0;
+.btn-secondary {
+  background: $color-secondary;
+  border-color: $color-secondary;
+
+  &:hover {
+    background: $color-secondary-hover;
+    border-color: $color-secondary-hover;
+  }
+}
+
+.btn-text {
+  background: $color-light-green;
+  border-color: $color-light-green;
+  color: $color-primary;
+
+  &:hover {
+    background: $color-white;
+    border-color: $color-light-green;
+    color: $color-primary;
   }
 }

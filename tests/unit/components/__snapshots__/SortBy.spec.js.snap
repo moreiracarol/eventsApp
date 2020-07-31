@@ -1,10 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<SortBy/> should render the component 1`] = `
-<div class="sort-by"><span class="sort-by__title">Sort by</span> <select id="orderBy" data-sort-select="">
-    <option data-sort-options="" value="date,asc">Upcoming events</option>
-    <option data-sort-options="" value="name,asc">Name</option>
-    <option data-sort-options="" value="relevance,asc">Relevance</option>
-    <option data-sort-options="" value="distance,asc">Distance</option>
-  </select></div>
+<div class="sort-by ml-auto">
+  <b-form-select-stub options="[object Object],[object Object],[object Object],[object Object],[object Object]" valuefield="value" textfield="text" htmlfield="html" disabledfield="disabled" labelfield="label" optionsfield="options" selectsize="0"></b-form-select-stub>
+</div>
 `;

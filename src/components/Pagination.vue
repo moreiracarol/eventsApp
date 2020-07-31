@@ -42,7 +42,7 @@ export default {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  color: $color6;
+  color: $color-secondary;
   padding: 0;
   font-weight: 600;
   margin: 48px 12px;
@@ -54,21 +54,21 @@ export default {
 
   .active,
   &__item:hover {
-    background-color: $color6;
-    color: $color2;
+    background-color: $color-secondary;
+    color: $color-light-green;
   }
 
   .disabled,
   .disabled:hover {
-    color: $color3;
-    background: $color1;
+    color: $color-light-gray;
+    background: $color-white;
     cursor: not-allowed;
   }
 }
 
 .active,
 .pagination__item:hover {
-  background-color: $color6;
-  color: $color2;
+  background-color: $color-secondary;
+  color: $color-light-green;
 }
 </style>

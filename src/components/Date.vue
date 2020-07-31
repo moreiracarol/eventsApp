@@ -36,7 +36,7 @@ export default {
 @import "../styles/events-app";
 
 .date {
-  color: $color4;
+  color: $color-primary;
   font-weight: 600;
   padding: 4px;
   font-size: 12px;
