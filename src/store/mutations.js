@@ -16,5 +16,17 @@ export default {
           state &&
           state.favorites &&
           state.favorites.filter(item => item.id !== event.id));
+  },
+  setUser(state, user) {
+    state.isAuthenticated = !!user;
+  },
+  setRegister(state, isRegistered) {
+    state.isRegistered = isRegistered;
+  },
+  setConfirmed(state, isConfirmed) {
+    state.isRegistered = isConfirmed;
+  },
+  setAuthError(state, error) {
+    state.authError = error;
   }
 };

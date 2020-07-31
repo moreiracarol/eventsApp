@@ -7,5 +7,8 @@ export default {
   },
   totalPages: state => {
     return state.totalPages;
+  },
+  isAuthenticated: state => {
+    return state.isAuthenticated;
   }
 };

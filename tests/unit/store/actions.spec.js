@@ -2,6 +2,7 @@ import DiscoveryApi from "@/api/DiscoveryApi";
 import actions from "@/store/actions";
 import StringUtils from "@/utils/stringUtils";
 import IpApi from "@/api/IpApi";
+import { Auth } from "aws-amplify";
 
 const event = {
   id: "1",
@@ -34,14 +35,12 @@ const formattedEvent = {
 describe("Actions", () => {
   const events = [event];
   const page = { totalPages: 10 };
+  const user = { email: "user@app.com", password: "123" };
 
   let commit = jest.fn();
   let dispatch = jest.fn();
 
-  let context = {
-    commit,
-    dispatch
-  };
+  let context = { commit, dispatch };
 
   beforeEach(() => {
     jest.spyOn(StringUtils, "getPrice").mockImplementation();
@@ -62,7 +61,12 @@ describe("Actions", () => {
 
     await actions.getEvents(context, { page: 0 });
     expect(spyFetchLocation).toHaveBeenCalled();
-    expect(spyFetchEvents).toHaveBeenCalledWith(0, "date,asc", "DE", "1.000,2.000");
+    expect(spyFetchEvents).toHaveBeenCalledWith(
+      0,
+      "date,asc",
+      "DE",
+      "1.000,2.000"
+    );
     expect(context.commit).toHaveBeenCalledWith("saveEvents", [formattedEvent]);
     expect(context.commit).toHaveBeenCalledWith(
       "saveTotalPages",
@@ -79,5 +83,35 @@ describe("Actions", () => {
   test("getFavorites", async () => {
     await actions.getFavorites(context);
     expect(context.commit).toHaveBeenCalledWith("saveEvents", [formattedEvent]);
+  });
+
+  test("load", async () => {
+    jest.spyOn(Auth, "currentAuthenticatedUser").mockResolvedValue(user);
+    await actions.load(context);
+    expect(commit).toHaveBeenCalledWith("setUser", user);
+  });
+
+  test("register", async () => {
+    jest.spyOn(Auth, "signUp").mockResolvedValue(user);
+    await actions.register(context, user);
+    expect(commit).toHaveBeenCalledWith("setUser", user);
+  });
+
+  test("confirmRegistration", async () => {
+    jest.spyOn(Auth, "confirmSignUp").mockResolvedValue(user);
+    await actions.confirmRegistration(context, user);
+    expect(commit).toHaveBeenCalledWith("setUser", user);
+  });
+
+  test("login", async () => {
+    jest.spyOn(Auth, "signIn").mockResolvedValue(user);
+    await actions.login(context, user);
+    expect(commit).toHaveBeenCalledWith("setUser", user);
+  });
+
+  test("logout", async () => {
+    jest.spyOn(Auth, "signOut").mockImplementation();
+    await actions.logout(context);
+    expect(commit).toHaveBeenCalledWith("setUser", null);
   });
 });

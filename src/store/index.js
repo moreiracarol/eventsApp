@@ -12,7 +12,12 @@ export default new Vuex.Store({
   state: {
     events: [],
     favorites: [],
-    totalPages: 0
+    totalPages: 0,
+    isAuthenticated: false,
+    isRegistered: false,
+    isConfirmed: false,
+    authError: null,
+    user: null
   },
   plugins: [createPersistedState()],
   actions,

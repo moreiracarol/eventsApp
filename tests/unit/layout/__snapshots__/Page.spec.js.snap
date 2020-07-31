@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Page /> should render the component 1`] = `
+<div class="view-layout">
+  <div class="view-layout__header">
+    <h1 data-events-title="">foo</h1>
+    <b-button-stub variant="primary" type="button" tag="button" target="_self">Logout</b-button-stub>
+  </div>
+  <div class="view-layout__body">
+    <b-button-stub variant="secondary" type="button" tag="button" target="_self" data-favorites-button="" class="view-layout__body__button">
+      bar
+    </b-button-stub>
+  </div>
+</div>
+`;
