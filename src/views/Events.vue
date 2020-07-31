@@ -8,12 +8,21 @@
 .
 <script>
 import EventsList from '@/components/EventsList'
-import { FAVORITES_PATH } from '@/utils/constants'
+import {FAVORITES_PATH, LOGIN_PATH} from '@/utils/constants'
 import Page from '@/layouts/Page'
+import {mapGetters} from "vuex";
 
 export default {
   name: 'Events',
   components: { Page, EventsList },
+  created() {
+    !this.isAuthenticated && this.$router.push(LOGIN_PATH)
+  },
+  computed: {
+    ...mapGetters({
+      isAuthenticated: "isAuthenticated"
+    })
+  },
   methods: {
     goToFavorites() {
       this.$router.push(FAVORITES_PATH)

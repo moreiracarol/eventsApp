@@ -19,6 +19,6 @@ export default {
   text-align: center;
   color: #2c3e50;
   max-width: 1272px;
-  margin: 60px 8%;
+  margin: 0 auto;
 }
 </style>

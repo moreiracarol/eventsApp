@@ -1,6 +1,7 @@
 import mutations from "@/store/mutations";
 
 describe("Mutations", () => {
+  const user = { email: "user@app.com", password: "123" };
   const events = [
     {
       id: 1,
@@ -19,7 +20,9 @@ describe("Mutations", () => {
   ];
   let state = {
     events: [],
-    favorites: []
+    favorites: [],
+    isAuthenticated: false,
+    user: null
   };
 
   test("saveEvents", () => {
@@ -43,5 +46,10 @@ describe("Mutations", () => {
     const event = events[0];
     mutations.updateFavoritesList(state, event);
     expect(state.favorites[0]).toBe(event);
+  });
+
+  test("setUser", () => {
+    mutations.setUser(state, user);
+    expect(state.isAuthenticated).toBeTruthy();
   });
 });

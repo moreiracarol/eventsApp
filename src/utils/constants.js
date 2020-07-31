@@ -5,6 +5,7 @@ export const API_KEY = "4diZ7tJQArO9sxHiVWMASl5udVTAoI78";
 export const EVENTS_PATH = "/events";
 export const FAVORITES_PATH = "/favorites";
 export const LOGIN_PATH = "/login";
+export const REGISTER_PATH = "/register";
 
 export const SORT_OPTIONS = [
   { text: 'Sort by', value: null, disabled: true },

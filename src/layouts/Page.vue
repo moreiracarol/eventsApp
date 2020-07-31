@@ -2,9 +2,15 @@
   <div class="view-layout">
     <div class="view-layout__header">
       <h1 data-events-title>{{ pageTitle }}</h1>
+      <b-button variant="primary" @click="logout">Logout</b-button>
     </div>
     <div class="view-layout__body">
-      <b-button class="view-layout__body__button" variant="secondary" data-favorites-button @click="goToPage">
+      <b-button
+        class="view-layout__body__button"
+        variant="secondary"
+        data-favorites-button
+        @click="goToPage"
+      >
         {{ buttonLabel }}
       </b-button>
       <slot name="content" />
@@ -13,8 +19,11 @@
 </template>
 
 <script>
+import { LOGIN_PATH } from "@/utils/constants";
+import { mapActions } from "vuex";
+
 export default {
-  name: 'ViewLayout',
+  name: "ViewLayout",
   props: {
     pageTitle: {
       type: String,
@@ -26,15 +35,22 @@ export default {
     }
   },
   methods: {
+    ...mapActions({
+      authLogout: "logout"
+    }),
+    async logout() {
+      await this.authLogout();
+      this.$router.push(LOGIN_PATH);
+    },
     goToPage() {
-      this.$emit('click')
+      this.$emit("click");
     }
   }
-}
+};
 </script>
 
 <style scoped lang="scss">
-@import '@/styles/events-app';
+@import "@/styles/events-app";
 .view-layout {
   max-width: $max-content-size;
   margin: 24px auto;

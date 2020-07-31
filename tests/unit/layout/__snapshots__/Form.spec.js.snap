@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Form /> should render the component 1`] = `
+<div class="form">
+  <h1></h1>
+  <b-form-stub class="form__fields">
+    <b-button-stub variant="primary" type="submit" tag="button" target="_self" class="form__button"></b-button-stub>
+  </b-form-stub> <a class="form-link"></a>
+</div>
+`;
