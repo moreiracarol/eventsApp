@@ -1,4 +1,4 @@
-import EventsList from "../../../src/components/EventsList";
+import EventsList from "@/components/EventsList";
 import { createLocalVue, shallowMount } from "@vue/test-utils";
 
 const localVue = createLocalVue();

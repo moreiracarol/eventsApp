@@ -1,10 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Events /> should render the component 1`] = `
-<div class="events">
-  <h1 data-events-title="">EVENTS</h1> <button data-favorites-button="" class="primary-button events__favorites-button">
-    My favorites
-  </button>
-  <eventslist-stub showallevents="true" data-events-list=""></eventslist-stub>
-</div>
+<page-stub pagetitle="EVENTS" buttonlabel="My favorites">
+  <div>
+    <eventslist-stub showallevents="true" data-events-list=""></eventslist-stub>
+  </div>
+</page-stub>
 `;

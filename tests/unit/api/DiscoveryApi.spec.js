@@ -1,7 +1,7 @@
 import MockAdapter from "axios-mock-adapter";
-import DiscoveryApi from "../../../src/api/DiscoveryApi";
+import DiscoveryApi from "@/api/DiscoveryApi";
 import axios from "axios";
-import { API_KEY, DISCOVER_URL } from "../../../src/utils/constants";
+import { API_KEY, DISCOVER_URL } from "@/utils/constants";
 
 describe("DiscoveryApi", () => {
   const latLong = "1.000,2.000";

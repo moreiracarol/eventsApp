@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { monthName, weekDayName } from "../utils/constants";
+import { monthName, weekDayName } from "@/utils/constants";
 
 export default {
   name: "Date",
@@ -36,7 +36,7 @@ export default {
 @import "../styles/events-app";
 
 .date {
-  color: $color4;
+  color: $color-primary;
   font-weight: 600;
   padding: 4px;
   font-size: 12px;

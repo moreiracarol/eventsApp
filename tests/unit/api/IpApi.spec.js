@@ -1,7 +1,7 @@
 import MockAdapter from "axios-mock-adapter";
-import IpApi from "../../../src/api/IpApi";
+import IpApi from "@/api/IpApi";
 import axios from "axios";
-import { IP_URL } from "../../../src/utils/constants";
+import { IP_URL } from "@/utils/constants";
 
 describe("IpApi", () => {
   let mockAdapter;

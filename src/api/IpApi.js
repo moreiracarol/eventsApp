@@ -1,5 +1,5 @@
 import axios from "axios";
-import { IP_URL } from "../utils/constants";
+import { IP_URL } from "@/utils/constants";
 
 export default {
   fetchLocation: async () => {

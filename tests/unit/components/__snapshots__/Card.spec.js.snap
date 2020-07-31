@@ -1,15 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Card/> should render the component 1`] = `
-<div class="card">
-  <div class="card__content">
-    <div class="card__image"><img></div>
-    <div class="card__info">
+<b-card-stub bodytag="div" titletag="h4" subtitletag="h6" subtitletextvariant="muted" headertag="div" footertag="div" tag="div" nobody="true" class="overflow-hidden">
+  <b-row-stub tag="div" nogutters="true" class="card__row">
+    <b-col-stub md="4" tag="div">
+      <b-img-stub fluidgrow="true" rounded="true" blankcolor="transparent"></b-img-stub>
+    </b-col-stub>
+    <b-col-stub md="8" tag="div" class="card__content">
       <date-stub date="[object Object]"></date-stub>
       <div class="card__name"></div>
       <div class="card__price"></div>
-    </div>
-  </div>
-  <div class="card__icons"><img src="bar" class="card__icons__redirect"> <img src="foo" class="card__icons__favorite"></div>
-</div>
+      <div class="card__icons"><img src="bar" data-icon-redirect=""> <img src="foo"></div>
+    </b-col-stub>
+  </b-row-stub>
+</b-card-stub>
 `;

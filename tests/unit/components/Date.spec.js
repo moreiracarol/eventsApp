@@ -1,4 +1,4 @@
-import Date from "../../../src/components/Date";
+import Date from "@/components/Date";
 import { createLocalVue, shallowMount } from "@vue/test-utils";
 
 const localVue = createLocalVue();

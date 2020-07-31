@@ -19,11 +19,11 @@
 </template>
 
 <script>
-import store from "../store";
-import Card from "./Card";
-import { SORT_OPTIONS } from "../utils/constants";
-import Pagination from "./Pagination";
-import SortBy from "./SortBy";
+import store from "@/store";
+import Card from "@/components/Card";
+import { SORT_OPTIONS } from "@/utils/constants";
+import Pagination from "@/components/Pagination";
+import SortBy from "@/components/SortBy";
 
 export default {
   name: "EventsList",

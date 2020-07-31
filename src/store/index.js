@@ -1,8 +1,8 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import actions from "./actions";
-import getters from "./getters";
-import mutations from "./mutations";
+import actions from "@/store/actions";
+import getters from "@/store/getters";
+import mutations from "@/store/mutations";
 import createPersistedState from "vuex-persistedstate";
 
 Vue.use(Vuex);
